@@ -15,6 +15,7 @@ class SabiasController extends Controller
     public function index()
     {
         //
+        $this->authorize('viewAny',Sabia::class);
         return view('sabias.index');
     }
 
@@ -26,6 +27,7 @@ class SabiasController extends Controller
     public function create()
     {
         //
+        $this->authorize('create',Sabia::class);
         return view('sabias.create');
     }
 
@@ -60,6 +62,7 @@ class SabiasController extends Controller
     public function edit(Sabia $sabia)
     {
         //
+        $this->authorize('update',$sabia);
         return view('sabias.edit',['sabia'=>$sabia]);
     }
 

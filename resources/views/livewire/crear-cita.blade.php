@@ -103,48 +103,47 @@
 
 
 <div class="">
-    <form wire:submit.prevent='crearSabia'  class="md:w-1/2">
+    <form wire:submit.prevent='crearCita' class="md:w-1/2">
         @csrf
         <div class="mt-4">
-            <x-input-label for="title" :value="__('Titulo del enlace')" />
-            <x-text-input id="title" class="block mt-1 w-full" type="text" wire:model="title" :value="old('title')" placeholder="Ingrese titulo del enlace"  />
-            @error('title')
-                <livewire:mostrar-alerta :message="$message">
-            @enderror
-        </div>
-        <div class="mt-4">
-            <x-input-label for="url" :value="__('URL del enlace')" />
-            <x-text-input id="url" class="block mt-1 w-full" type="text" wire:model="url" :value="old('url')" placeholder="Ingrese la url del enlace"  />
-            {{-- <x-input-error :messages="$errors->get('empresa')" class="mt-2" /> --}}
-            @error('url')
-                <livewire:mostrar-alerta :message="$message">
-            @enderror
-        </div>
-        <div class="mt-4">
-            <x-input-label for="autor" :value="__('Author del enlace')" />
-            <x-text-input id="autor" class="block mt-1 w-full" type="text" wire:model="autor" :value="old('autor')" placeholder="Ingrese el autor"  />
-            {{-- <x-input-error :messages="$errors->get('empresa')" class="mt-2" /> --}}
-            @error('autor')
-                <livewire:mostrar-alerta :message="$message">
-            @enderror
-        </div>
-        <div class="mt-4">
-            <x-input-label for="categoria" :value="__('Categoria del enlace')" />
-            
-            <select wire:model="categoria" id="categoria" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block w-full">
+            <x-input-label for="infante_id" :value="__('Infante de la cita')" />
+            <select wire:model="infante_id" id="infante_id"
+                class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block w-full">
                 <option value="" selected>--Sin seleccionar</option>
-                @foreach ($categorias as $categoria)
-                    <option value="{{$categoria->id}}" >{{$categoria->categoria}}</option>
+                @foreach ($infantes as $infante)
+                    <option value="{{ $infante->id }}">
+                        {{ $infante->name . ' ' . $infante->lastname_p . ' ' . $infante->lastname_m }}</option>
                 @endforeach
             </select>
-            @error('categoria')
+            @error('infante')
                 <livewire:mostrar-alerta :message="$message">
-            @enderror
+                @enderror
         </div>
-    
-    
+        <div class="mt-4">
+            <x-input-label for="date" :value="__('Fecha de la cita')" />
+            <x-text-input id="date" class="block mt-1 w-full date" type="date" min="{{ $fecha }}"
+                wire:model="date" :value="old('date')" />
+            @error('date')
+                <livewire:mostrar-alerta :message="$message">
+                @enderror
+        </div>
+        <div class="mt-4">
+            <x-input-label for="horario_id" :value="__('Horario de la cita')" />
+            <select disabled wire:model="horario_id" id="horario_id"
+                class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block w-full horario">
+                <option value="" selected>--Sin seleccionar</option>
+                @foreach ($horarios as $horario)
+                    <option value="{{ $horario->id }}">{{ $horario->horario }}</option>
+                @endforeach
+            </select>
+            @error('horario')
+                <livewire:mostrar-alerta :message="$message">
+                @enderror
+        </div>
+
+
         <div class="mt-4 grid place-items-center">
-            <x-primary-button class="mt-2" id="submit">Registrar enlace</x-primary-button>
+            <x-primary-button class="mt-2" id="submit">Agendar cita</x-primary-button>
         </div>
         <div class="grid place-items-center mt-6">
             <div class=" hidden animacion ">
@@ -158,21 +157,29 @@
                 </div>
             </div>
         </div>
-        {{-- <button wire:click="$emit('mostrarAlerta')" class="text-white bg-red-600 py-2 px-4 rounded-lg text-xs font-bold uppercase">Registrar enlace</button> --}}
     </form>
-    </div>
+</div>
 
-    
-    @push('scripts')
+@push('scripts')
     <script>
+        const inputFecha = document.querySelector('.date');
+        const inputHorario = document.querySelector('.horario');
         const animacion = document.querySelector('.animacion');
         const btnEnviar = document.querySelector('#submit');
-        btnEnviar.addEventListener('click',e=>{
+
+        btnEnviar.addEventListener('click', e => {
             btnEnviar.classList.add('hidden');
             animacion.classList.remove('hidden');
             setTimeout(() => {
                 animacion.classList.add('hidden');
             }, 8000);
         })
+
+        inputFecha.addEventListener('change', e => {
+            if (e.target.value !=='') {
+                inputHorario.disabled = false;
+            }
+        });
+
     </script>
 @endpush

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Video;
+use App\Models\Horario;
+use App\Models\Infante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
-class VideosController extends Controller
+class CitasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +17,7 @@ class VideosController extends Controller
     public function index()
     {
         //
-        $this->authorize('viewAny',Video::class);
-        return view('videos.index');
-
+        return view('citas.index');
     }
 
     /**
@@ -28,8 +28,8 @@ class VideosController extends Controller
     public function create()
     {
         //
-        $this->authorize('create',Video::class);
-        return view('videos.create');
+       
+        return view('citas.create');
     }
 
     /**
@@ -53,23 +53,16 @@ class VideosController extends Controller
     {
         //
     }
- 
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Video $video)
+    public function edit($id)
     {
         //
-         //Verificar el policy en el metodo de update
-        $this->authorize('update',$video);
-
-        // dd($video);
-        return view('videos.edit',[
-            'video'=>$video
-        ]);
     }
 
     /**

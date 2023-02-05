@@ -7,7 +7,7 @@
 
     <div class="py-3">
         <div class="max-w-7xl mx-auto ">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="mt-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-2 text-gray-900">
                     <div class="md:flex md:justify-center p-2">
                         <livewire:editar-video :video="$video"/>

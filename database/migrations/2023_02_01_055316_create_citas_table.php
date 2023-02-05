@@ -13,16 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('infantes');
-        Schema::create('infantes', function (Blueprint $table) {
+        Schema::dropIfExists('citas');
+        Schema::create('citas', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('lastname_p');
-            $table->string('lastname_m');
-            $table->integer('genero');
             $table->date('date');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('publicado')->default(1);
+            $table->foreignId('infante_id')->constrained()->onDelete('cascade');
+            $table->foreignId('horario_id')->constrained()->onDelete('cascade');
+            $table->string('asistio');
+            $table->string('cancelo');  
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('infantes');
+        Schema::dropIfExists('citas');
     }
 };

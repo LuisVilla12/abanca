@@ -141,7 +141,7 @@
 
             <select wire:model="genero" id="genero"
                 class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block w-full">
-                <option value="" selected disabled>--Sin seleccionar</option>
+                <option value=""  selected>--Sin seleccionar</option>
                 <option value="1">Hombre</option>
                 <option value="2">Mujer</option>
             </select>

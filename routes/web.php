@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
-use App\Http\Controllers\infantesController;
-use App\Http\Controllers\NoticiasController;
+use App\Http\Controllers\CitasController;
+use App\Http\Controllers\SabiasController;
 use App\Http\Controllers\VideosController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SabiasController;
+use App\Http\Controllers\infantesController;
+use App\Http\Controllers\NoticiasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +25,9 @@ Route::get('/', [AppController::class, 'index'])->name('index');
 
 // Route::get('/dashboard',[VideosController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
- Route::get('/dashboard', function () {
-     return view('dashboard');
- })->middleware(['auth', 'verified'])->name('dashboard');
+//  Route::get('/dashboard', function () {
+//      return view('dashboard');
+//  })->middleware(['auth', 'verified'])->name('dashboard');
 // Videos
 Route::get('/videos',[VideosController::class,'index'])->middleware(['auth', 'verified'])->name('video.index');
 Route::get('/videos/create',[VideosController::class,'create'])->middleware(['auth', 'verified'])->name('video.create');
@@ -50,6 +51,9 @@ Route::get('/infantes',[infantesController::class,'index'])->middleware(['auth',
 Route::get('/infantes/create',[infantesController::class,'create'])->middleware(['auth', 'verified'])->name('infante.create');
 Route::get('/infantes/{infante}/edit',[infantesController::class,'edit'])->middleware(['auth', 'verified'])->name('infante.edit');
 
+// Citas
+Route::get('/dashboard',[CitasController::class,'index'])->middleware(['auth', 'verified'])->name('citas.index');
+Route::get('/citas/create',[CitasController::class,'create'])->middleware(['auth', 'verified'])->name('citas.create');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
