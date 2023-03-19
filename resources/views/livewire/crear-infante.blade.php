@@ -154,7 +154,7 @@
 
         <div class="mt-4">
             <x-input-label for="date" :value="__('Fecha de nacimiento')" />
-            <x-text-input id="date" class="block mt-1 w-full" type="date" wire:model="date"
+            <x-text-input id="date" class="block mt-1 w-full" type="date" max="{{$fecha}}" wire:model="date"
                 :value="old('date')" />
             <x-input-error :messages="$errors->get('date')" class="mt-2" />
 
@@ -166,7 +166,7 @@
 
 
         <div class="mt-4 grid place-items-center">
-            <x-primary-button class="mt-2" id="submit">Registrar infante</x-primary-button>
+            <x-primary-button class="my-6 bg-pink-700" id="submit">Registrar infante</x-primary-button>
         </div>
         <div class="grid place-items-center mt-6">
             <div class=" hidden animacion ">

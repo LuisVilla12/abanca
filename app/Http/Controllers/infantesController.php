@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cita;
 use App\Models\Infante;
 use Illuminate\Http\Request;
 
@@ -47,9 +48,11 @@ class infantesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Infante $infante)
     {
         //
+        $citas=Cita::all()->where('infante_id',$infante->id);
+        return view('infante.show',['infante'=>$infante,'citas'=>$citas]);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Infante;
 use Livewire\Component;
+use Illuminate\Support\Carbon;
 
 class CrearInfante extends Component
 {
@@ -35,7 +36,8 @@ class CrearInfante extends Component
     }
     public function render()
     {
-        return view('livewire.crear-infante');
+        $fecha = Carbon::now()->format('Y-m-d');
+        return view('livewire.crear-infante',['fecha'=>$fecha]);
     }
 }
 

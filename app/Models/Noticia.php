@@ -13,6 +13,9 @@ class Noticia extends Model
         'title',
         'autor',
         'date',
+        'descripcion',
+        'descripcion_dos',
+        'urlimg',
         'url',
         'user_id'
     ];

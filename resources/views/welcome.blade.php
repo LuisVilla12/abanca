@@ -383,7 +383,7 @@
     </style>
 
     {{-- Barra de estilos --}}
-    <link rel="stylesheet" href="{{ asset('build/assets/app-7a46bbc7.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/app-2fb2b5c8.css') }}">
 </head>
 
 <body class="bg-white    flex flex-col justify-between">
@@ -399,7 +399,7 @@
             </div>
             <ul class="hidden md:block">
                 <li class="inline py-5 px-2 ">
-                    <a href="" class="inline-block  text-white text-xl md:mr-3">
+                    <a href="{{ route('material-apoyo') }}" class="inline-block  text-white text-xl md:mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6 inline">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -409,7 +409,7 @@
                 </li>
 
                 <li class="inline py-5 px-2">
-                    <a href="" class="inline-block  text-white text-xl md:mr-3">
+                    <a href="{{ route('conoce') }}" class="inline-block  text-white text-xl md:mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6 inline">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -437,7 +437,7 @@
                 @endauth
                 @guest
                     <li class="inline py-5 px-2">
-                        <a href="/login" class="inline-block  text-white text-xl md:mr-3">
+                        <a href="{{ route('login') }}" class="inline-block  text-white text-xl md:mr-3">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6 inline">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -537,7 +537,7 @@
         {{-- ver mas noticias --}}
         <div class="grid place-items-center">
             <a class="my-4 rounded-xl py-3 px-6 text-white bg-orange-500 mt-4 text-2xl font-semibold md:w-auto hover:cursor-pointer"
-                href="">Ver más noticias</a>
+                href="{{ route('noticias.catalogo') }}"> Ver más noticias</a>
         </div>
     </main>
     <footer class="bg-footer pt-2 mt-10">

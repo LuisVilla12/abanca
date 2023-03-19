@@ -12,6 +12,7 @@ class EditarVideo extends Component
     public $title;
     public $url;
     public $categoria;
+    public $autor;
 
     // Sincronizar atributos a traves de la funcion mount de la instancia  que se esta pasando
     public function mount(Video $video)
@@ -19,6 +20,7 @@ class EditarVideo extends Component
         $this->video_id = $video->id;
         $this->title = $video->title;
         $this->url = $video->url;
+        $this->autor = $video->autor;
         $this->categoria = $video->categoria_id;
     }
 
@@ -26,7 +28,8 @@ class EditarVideo extends Component
     protected $rules = [
         'title' => 'required|string',
         'url' => 'required|string',
-        'categoria' => 'required'
+        'categoria' => 'required',
+        'autor' => 'required'
     ];
 
 
@@ -40,6 +43,7 @@ class EditarVideo extends Component
         $video->title = $datos['title'];
         $video->categoria_id = $datos['categoria'];
         $video->url = $datos['url'];
+        $video->autor = $datos['autor'];
         // Guardar video
         $video->save();
         return redirect()->route('video.index');

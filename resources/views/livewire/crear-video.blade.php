@@ -120,6 +120,14 @@
         @enderror
     </div>
     <div class="mt-4">
+        <x-input-label for="autor" :value="__('Autor:')" />
+        <x-text-input id="autor" class="block mt-1 w-full" type="text" wire:model="autor" :value="old('autor')" placeholder="Ingrese la autor del video"  />
+        {{-- <x-input-error :messages="$errors->get('empresa')" class="mt-2" /> --}}
+        @error('autor')
+            <livewire:mostrar-alerta :message="$message">
+        @enderror
+    </div>
+    <div class="mt-4">
         <x-input-label for="categoria" :value="__('Categoria de la vacante')" />
         
         <select wire:model="categoria" id="categoria" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block w-full">
@@ -133,9 +141,9 @@
         @enderror
     </div>
     <div class="mt-4 grid place-items-center">
-        <x-primary-button class="mt-2" id="submit">Registrar video</x-primary-button>
+        <x-primary-button class="my-4 bg-pink-700" id="submit">Registrar video</x-primary-button>
     </div>
-    <div class="grid place-items-center mt-6">
+    <div class="grid place-items-center my-6">
         <div class=" hidden animacion ">
             <div class="sk-chase">
                 <div class="sk-chase-dot"></div>

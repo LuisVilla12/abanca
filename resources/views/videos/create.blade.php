@@ -9,6 +9,7 @@
         <div class="max-w-7xl mx-auto ">
             <div class="mt-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-2 text-gray-900">
+                    <h1 class="text-2xl font-bold text-center mb-5">Añadir Video</h1>
                     <div class="md:flex md:justify-center p-2">
                         <livewire:crear-video/>
                     </div>

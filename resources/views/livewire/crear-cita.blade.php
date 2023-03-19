@@ -101,85 +101,88 @@
     </style>
 @endpush
 
-
 <div class="">
-    <form wire:submit.prevent='crearCita' class="md:w-1/2">
-        @csrf
-        <div class="mt-4">
-            <x-input-label for="infante_id" :value="__('Infante de la cita')" />
-            <select wire:model="infante_id" id="infante_id"
-                class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block w-full">
-                <option value="" selected>--Sin seleccionar</option>
-                @foreach ($infantes as $infante)
-                    <option value="{{ $infante->id }}">
-                        {{ $infante->name . ' ' . $infante->lastname_p . ' ' . $infante->lastname_m }}</option>
-                @endforeach
-            </select>
-            @error('infante')
-                <livewire:mostrar-alerta :message="$message">
-                @enderror
-        </div>
-        <div class="mt-4">
-            <x-input-label for="date" :value="__('Fecha de la cita')" />
-            <x-text-input id="date" class="block mt-1 w-full date" type="date" min="{{ $fecha }}"
-                wire:model="date" :value="old('date')" />
-            @error('date')
-                <livewire:mostrar-alerta :message="$message">
-                @enderror
-        </div>
-        <div class="mt-4">
-            <x-input-label for="horario_id" :value="__('Horario de la cita')" />
-            <select disabled wire:model="horario_id" id="horario_id"
-                class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block w-full horario">
-                <option value="" selected>--Sin seleccionar</option>
-                @foreach ($horarios as $horario)
-                    <option value="{{ $horario->id }}">{{ $horario->horario }}</option>
-                @endforeach
-            </select>
-            @error('horario')
-                <livewire:mostrar-alerta :message="$message">
-                @enderror
-        </div>
 
-
-        <div class="mt-4 grid place-items-center">
-            <x-primary-button class="mt-2" id="submit">Agendar cita</x-primary-button>
-        </div>
-        <div class="grid place-items-center mt-6">
-            <div class=" hidden animacion ">
-                <div class="sk-chase">
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
-                    <div class="sk-chase-dot"></div>
+    <div>
+        <livewire:filtar-citas :fecha="$fecha">
+            <div class="grid place-items-center mt-6">
+                <div class=" hidden animacion ">
+                    <div class="sk-chase">
+                        <div class="sk-chase-dot"></div>
+                        <div class="sk-chase-dot"></div>
+                        <div class="sk-chase-dot"></div>
+                        <div class="sk-chase-dot"></div>
+                        <div class="sk-chase-dot"></div>
+                        <div class="sk-chase-dot"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+    </div>
+    <div class="" id="formulario">
+
+        <form wire:submit.prevent='reservarCita' class="md:w-1/2" id="formulario">
+            @csrf
+            <div class="mt-4">
+                <x-input-label for="infante_id" :value="__('Infante de la cita')" />
+                <select wire:model="infante_id" id="infante_id"
+                    class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block w-full">
+                    <option value="" selected>--Sin seleccionar</option>
+                    @foreach ($infantes as $infante)
+                        <option value="{{ $infante->id }}">
+                            {{ $infante->name . ' ' . $infante->lastname_p . ' ' . $infante->lastname_m }}</option>
+                    @endforeach
+                </select>
+                @error('infante')
+                    <livewire:mostrar-alerta :message="$message">
+                    @enderror
+            </div>
+            <div>
+                {{-- <p>Horarios Select</p>
+                @foreach ($horariosS as $hs)
+                    <p>{{$hs->id}}</p>
+                @endforeach --}}
+            </div>
+            <div class="mt-4">
+                <x-input-label for="horario_id" :value="__('Horario de la cita')" />
+                <select wire:model="horario_id" id="horario_id"
+                    class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block w-full horario">
+                    <option value="" selected>--Sin seleccionar</option>
+                    
+                    @foreach ($horarios as $horario)
+                        <option value="{{ $horario->id }}">{{ $horario->horario }}</option>
+                    @endforeach
+                </select>
+                @error('horario')
+                    <livewire:mostrar-alerta :message="$message">
+                    @enderror
+            </div>
+    
+    
+            <div class="mt-4 grid place-items-center">
+                <x-primary-button class="mt-2" id="submit">Reservar cita</x-primary-button>
+            </div>
+           
+        </form>
+        
+    </div>
 </div>
 
 @push('scripts')
     <script>
-        const inputFecha = document.querySelector('.date');
-        const inputHorario = document.querySelector('.horario');
+        const inputDate = document.querySelector('.date');
         const animacion = document.querySelector('.animacion');
-        const btnEnviar = document.querySelector('#submit');
+        const btnBuscar = document.querySelector('.buscar');
+        const formulario = document.querySelector('#formulario');
+       
 
-        btnEnviar.addEventListener('click', e => {
-            btnEnviar.classList.add('hidden');
+        btnBuscar.addEventListener('click', e => {
+            btnBuscar.classList.add('hidden');
+            // formulario.classList.remove('hidden');
             animacion.classList.remove('hidden');
             setTimeout(() => {
                 animacion.classList.add('hidden');
             }, 8000);
         })
 
-        inputFecha.addEventListener('change', e => {
-            if (e.target.value !=='') {
-                inputHorario.disabled = false;
-            }
-        });
-
     </script>
-@endpush
+@endpush 

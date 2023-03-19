@@ -13,7 +13,9 @@ class Sabia extends Model
         'autor',
         'url',
         'categoria_id',
+        'descripcion',
         'user_id'
     ];
+    
 }
 

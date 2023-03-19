@@ -48,6 +48,7 @@ class EditarInfante extends Component
     }
     public function render()
     {
-        return view('livewire.editar-infante');
+        $fecha = Carbon::now()->format('Y-m-d');
+        return view('livewire.editar-infante',['fecha'=>$fecha]);
     }
 }

@@ -17,6 +17,14 @@ class Cita extends Model
         'asistio',
         'cancelo',
     ];
-}
 
-
+    public function horario(){
+        return $this->belongsTo(Horario::class);
+    }
+    public function infante(){
+        return $this->belongsTo(Infante::class);
+    }
+    // public function cantidatos(){
+    //     return $this->hasMany(Candidato::class)->orderBy('created_at','DESC' );
+    // }
+    }

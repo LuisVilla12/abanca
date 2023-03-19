@@ -7,6 +7,7 @@ use Livewire\Component;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class MostrarInfantes extends Component
 {
     public $tipo;

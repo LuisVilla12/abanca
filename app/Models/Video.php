@@ -12,6 +12,7 @@ class Video extends Model
         'title',
         'url',
         'categoria_id',
-        'user_id'
+        'user_id',
+        'autor'
     ];
 }

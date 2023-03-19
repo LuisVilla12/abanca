@@ -16,6 +16,8 @@ class CrearCita extends Component
     public $cancelo;
     public $asistio;
 
+    protected $listeners=['terminoBusqueda'=>'buscar'];
+
      // Reglas
      protected $rules=[
         'infante_id'=>'required',
@@ -23,7 +25,13 @@ class CrearCita extends Component
         'date'=>'required'
     ];
 
-    public function crearCita(){
+    public function buscar($date){
+        $this->date=$date;
+        // dd('buscando');
+    }
+
+    public function reservarCita(){
+        // dd('enviado');
         $datos=$this->validate();
         Cita::create([
             'infante_id'=>$datos['infante_id'],
@@ -33,13 +41,30 @@ class CrearCita extends Component
             'cancelo'=>'0',
             'user_id'=>auth()->user()->id
         ]);
-        return redirect()->route('infante.index');
+        return redirect()->route('citas.index');
     }
     public function render()
     {
-        $horarios=Horario::all();
         $infantes=Infante::all();
         $fecha = Carbon::now()->format('Y-m-d');
-        return view('livewire.crear-cita',['horarios'=>$horarios,'infantes'=>$infantes,'fecha'=>$fecha]);
+        $horariosAll=Horario::all();
+        // $horarios=Horario::when($this->date, function ($query){
+        //   $query->where('date',$this->date);
+        // })->orderBy('horarios.id','DESC')->get(); 
+                
+        $horarios=Horario::when($this->date, function ($query){
+             $query->join('citas', 'horarios.id', '=', 'citas.horario_id');
+             $query->where('date',$this->date);
+         })->orderBy('horarios.id','DESC')->get(); 
+        
+        $horariosA=$horariosAll->diff($horarios);
+        
+        // }
+        // $horarios=Horario::all()->;
+        // SELECT horario_id FROM horarios h inner join citas c on h.id =c.horario_id WHERE c.`date` ='2023-02-07';
+  
+        
+        
+        return view('livewire.crear-cita',['horarios'=>$horariosA->all(),'infantes'=>$infantes,'fecha'=>$fecha,'horariosS'=>$horarios,'horariosA'=>$horariosAll]);
     }
 }

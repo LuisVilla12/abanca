@@ -11,12 +11,14 @@ class CrearVideo extends Component
     public $title;
     public $url;
     public $categoria;
+    public $autor;
 
      // Reglas
      protected $rules=[
         'title'=>'required|string',
         'url'=>'required|string',
-        'categoria'=>'required'
+        'categoria'=>'required',
+        'autor'=>'required'
     ];
 
     public function crearVideo(){
@@ -25,6 +27,7 @@ class CrearVideo extends Component
         Video::create([
             'title'=>$datos['title'],
             'url'=>$datos['url'],
+            'autor'=>$datos['autor'],
             'categoria_id'=>$datos['categoria'],
             'user_id'=>auth()->user()->id
         ]);

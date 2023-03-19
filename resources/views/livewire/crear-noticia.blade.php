@@ -129,11 +129,25 @@
         </div>
         <div class="mt-4">
             <x-input-label for="date" :value="__('Fecha de la noticia')" />
-            <x-text-input id="date" class="block mt-1 w-full" type="date" wire:model="date" :value="old('date')"/>
+            <x-text-input id="date" class="block mt-1 w-full" type="date" wire:model="date" :value="old('date')" max="{{$fecha}}"/>
             @error('date')
                 <livewire:mostrar-alerta :message="$message">
             @enderror
         </div>
+        <div class="mt-4">
+            <x-input-label for="descripcion" :value="__('Descripción:')" />
+            <textarea id="descripcion" class="block mt-1 w-full" type="text" wire:model="descripcion"> {{old('descripcion')}}</textarea>
+            @error('descripcion')
+                <livewire:mostrar-alerta :message="$message">
+            @enderror
+        </div>
+        <div class="mt-4">
+            <x-input-label for="descripcion_dos" :value="__('Descripción extra (opcional):')" />
+            <textarea id="descripcion_dos" class="block mt-1 w-full" type="text" wire:model="descripcion_dos"> {{old('descripcion_dos')}}</textarea>
+            @error('descripcion_dos')
+                <livewire:mostrar-alerta :message="$message">
+            @enderror
+        </div> 
     
         <div class="mt-4 grid place-items-center">
             <x-primary-button class="mt-2" id="submit">Registrar noticia</x-primary-button>

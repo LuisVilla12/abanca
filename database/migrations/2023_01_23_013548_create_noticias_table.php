@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('noticias', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('url');
-            $table->string('autor');
+            $table->longText('title');
+            $table->longText('url');
+            $table->longText('autor');
             $table->date('date');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('publicado')->default(1);

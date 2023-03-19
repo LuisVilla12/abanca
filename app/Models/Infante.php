@@ -17,4 +17,7 @@ class Infante extends Model
         'genero',
         'user_id'
     ];
+    public function user(){
+        return $this->belongsTo(user::class);
+    }
 }

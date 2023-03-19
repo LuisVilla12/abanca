@@ -12,12 +12,14 @@ class CrearSabia extends Component
     public $autor;
     public $url;
     public $categoria;
+    public $descripcion;
 
      // Reglas
      protected $rules=[
         'title'=>'required|string',
         'autor'=>'required|string',
         'url'=>'required|string',
+        'descripcion'=>'required|string',
         'categoria'=>'required'
     ];
     public function crearSabia(){
@@ -27,6 +29,7 @@ class CrearSabia extends Component
             'title'=>$datos['title'],
             'autor'=>$datos['autor'],
             'url'=>$datos['url'],
+            'descripcion'=>$datos['descripcion'],
             'categoria_id'=>$datos['categoria'],
             'user_id'=>auth()->user()->id
         ]);

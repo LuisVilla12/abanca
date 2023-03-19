@@ -121,7 +121,7 @@
             @enderror
         </div>
         <div class="mt-4">
-            <x-input-label for="autor" :value="__('Author del enlace')" />
+            <x-input-label for="autor" :value="__('Autor del enlace')" />
             <x-text-input id="autor" class="block mt-1 w-full" type="text" wire:model="autor" :value="old('autor')" placeholder="Ingrese el autor"  />
             {{-- <x-input-error :messages="$errors->get('empresa')" class="mt-2" /> --}}
             @error('autor')
@@ -141,10 +141,16 @@
                 <livewire:mostrar-alerta :message="$message">
             @enderror
         </div>
-    
+        <div class="mt-4">
+            <x-input-label for="descripcion" :value="__('Descripción:')" />
+            <textarea id="descripcion" class="block mt-1 w-full" type="text" wire:model="descripcion"> {{old('descripcion')}}</textarea>
+            @error('descripcion')
+                <livewire:mostrar-alerta :message="$message">
+            @enderror
+        </div>
     
         <div class="mt-4 grid place-items-center">
-            <x-primary-button class="mt-2" id="submit">Registrar enlace</x-primary-button>
+            <x-primary-button class="mt-2 bg-pink-700" id="submit">Registrar enlace</x-primary-button>
         </div>
         <div class="grid place-items-center mt-6">
             <div class=" hidden animacion ">
@@ -162,6 +168,7 @@
     </form>
     </div>
 
+    
     
     @push('scripts')
     <script>
