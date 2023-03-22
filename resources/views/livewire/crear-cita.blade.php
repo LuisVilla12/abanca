@@ -159,7 +159,7 @@
     
     
             <div class="mt-4 grid place-items-center">
-                <x-primary-button class="mt-2" id="submit">Reservar cita</x-primary-button>
+                <x-primary-button class="mt-2 uppercase" id="submit">Reservar cita</x-primary-button>
             </div>
            
         </form>

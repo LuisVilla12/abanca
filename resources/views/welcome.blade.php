@@ -422,10 +422,9 @@
                 @auth
 
                     <li class="inline-block py-5 px-2">
-                        <form method="POST" action="" class="mt-1">
-                            @csrf
-
-                            <button type="submit" class=" flex text-white text-xl md:mr-3  cursor-pointer mt-1 ">
+                        <form method="POST" action="{{route('logout') }}" class="mt-1"> 
+                            @csrf 
+                            <button type="submit" class=" flex text-white text-xl md:mr-3  cursor-pointer mt-1 " >
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"

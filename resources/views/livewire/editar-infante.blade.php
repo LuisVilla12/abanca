@@ -158,7 +158,7 @@
     
     
         <div class="mt-4 grid place-items-center">
-            <x-primary-button  class="my-6 bg-pink-700 actualizar">Actulizar infante</x-primary-button>
+            <x-primary-button  class="my-6 bg-pink-700 actualizar">Actualizar infante</x-primary-button>
         </div>
         <div class="grid place-items-center mt-6">
             <div class=" hidden animacion ">

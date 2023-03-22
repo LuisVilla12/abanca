@@ -9,10 +9,13 @@
         <div class="flex flex-col md:flex-row items-stretch gap-3 md:items-center mt-5 md:mt-0 px-5">
             <a href="{{ route('infante.show', $cita->infante->id) }}"
                 class="text-white bg-pink-700 py-2 px-4  text-center rounded-lg text-xs font-bold uppercase">Ver</a>
+            
+            @if (auth()->user()->type==="2")
             <button wire:click="$emit('mostrarAlertaDos',{{$cita->id}})"
                 class="text-white bg-blue-600 py-2 px-4 rounded-lg text-xs font-bold uppercase">Asistio</button>
-            <button wire:click="$emit('mostrarAlerta',{{$cita->id}})"
-                class="text-white bg-red-600 py-2 px-4 rounded-lg text-xs font-bold uppercase">Cancelar</button>
+                <button wire:click="$emit('mostrarAlerta',{{$cita->id}})"
+                    class="text-white bg-red-600 py-2 px-4 rounded-lg text-xs font-bold uppercase">Cancelar</button>
+            @endif
         </div>
     </div>
     @empty
