@@ -103,7 +103,7 @@
 
 
 <div class="">
-    <form wire:submit.prevent='crearSabia'  class="md:w-1/2">
+    <form wire:submit.prevent='crearSabia'>
         @csrf
         <div class="mt-4">
             <x-input-label for="title" :value="__('Titulo del enlace')" />

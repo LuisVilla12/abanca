@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="">
-        <form method="POST" action="{{ route('login') }}" novalidate class=" px-16 py-8 shadow-sm rounded-md  w-full">
+        <form method="POST" action="{{ route('login') }}" novalidate class=" px-16 py-10 shadow-sm rounded-md  w-full">
             @csrf
             <h1 class="text-center font-bold uppercase text-4xl my-4 text-titulo">Iniciar sesión</h1>
             <div class="mb-5">
@@ -40,6 +40,14 @@
         <x-primary-button class="ml-3">
             {{ __('Iniciar sesión') }}
         </x-primary-button>
+       
+    </div>
+    <div class="flex items-center justify-center mt-4">
+        <a class="mt-4 text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        href="{{ route('register') }}">
+        {{ __('¿Aún no tienes una cuenta? Registrate ahora.') }}
+    </a>
+
     </div>
     </form>
     </div>

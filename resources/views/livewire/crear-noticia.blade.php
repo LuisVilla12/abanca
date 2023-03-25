@@ -100,7 +100,6 @@
         }
     </style>
 @endpush
-
 <div>
     <form wire:submit.prevent='crearNoticia'  class="">
         @csrf

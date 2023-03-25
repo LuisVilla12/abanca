@@ -61,9 +61,6 @@ class CrearCita extends Component
         
         // }
         // $horarios=Horario::all()->;
-        // SELECT horario_id FROM horarios h inner join citas c on h.id =c.horario_id WHERE c.`date` ='2023-02-07';
-  
-        
         
         return view('livewire.crear-cita',['horarios'=>$horariosA->all(),'infantes'=>$infantes,'fecha'=>$fecha,'horariosS'=>$horarios,'horariosA'=>$horariosAll]);
     }

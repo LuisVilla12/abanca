@@ -12,7 +12,10 @@
                         {{ $infante->date->format('d/m/Y')}}
                     </p>
                 </div>
+
                 <div class="flex flex-col md:flex-row items-stretch gap-3 md:items-center mt-5 md:mt-0 px-5">
+                    <a href="{{ route('infante.show', $infante->id) }}"
+                        class="text-white bg-pink-700 py-2 px-4  text-center rounded-lg text-xs font-bold uppercase">Ver</a>
                     <a href="{{ route('infante.edit', $infante->id) }}"
                         class="text-white bg-blue-600 py-2 px-4  text-center rounded-lg text-xs font-bold uppercase">Editar</a>
                     <button wire:click="$emit('mostrarAlerta',{{$infante->id}})"

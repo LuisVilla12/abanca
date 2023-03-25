@@ -103,7 +103,7 @@
 
 <div>
     
-    <form wire:submit.prevent='editarSabia'  class="md:w-1/2">
+    <form wire:submit.prevent='editarSabia'  >
         @csrf
         <div class="mt-4">
             <x-input-label for="title" :value="__('Titulo del enlace')" />
@@ -121,7 +121,7 @@
             @enderror
         </div>
         <div class="mt-4">
-            <x-input-label for="autor" :value="__('Author del enlace')" />
+            <x-input-label for="autor" :value="__('Autor del enlace')" />
             <x-text-input id="autor" class="block mt-1 w-full" type="text" wire:model="autor" :value="old('autor')" placeholder="Ingrese el autor"  />
             {{-- <x-input-error :messages="$errors->get('empresa')" class="mt-2" /> --}}
             @error('autor')

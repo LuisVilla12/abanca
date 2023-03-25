@@ -1,4 +1,9 @@
 <div>
+    <div class=" container mx-auto">
+        <div>
+            <livewire:buscar-citas>
+        </div>
+    </div>
     @forelse ($citas as $cita )
     <div class="md:flex md:justify-between md:items-center px-5">
         <div class="mb-5">

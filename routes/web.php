@@ -24,36 +24,26 @@ use App\Http\Controllers\SabiaIndex;
 |
 */
 
-
 Route::get('/', [AppController::class, 'index'])->name('index');
 Route::get('/material-apoyo',MaterialApoyoIndex::class)->name('material-apoyo');
 Route::get('/conoce',ConoceIndex::class)->name('conoce');
 
-
-// Route::get('/dashboard',[VideosController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
-
-//  Route::get('/dashboard', function () {
-//      return view('dashboard');
-//  })->middleware(['auth', 'verified'])->name('dashboard');
 // Videos
 Route::get('/videos',[VideosController::class,'index'])->middleware(['auth', 'verified'])->name('video.index');
 Route::get('/videos/create',[VideosController::class,'create'])->middleware(['auth', 'verified'])->name('video.create');
 Route::get('/videos/{video}/edit',[VideosController::class,'edit'])->middleware(['auth', 'verified'])->name('video.edit');
 
-
 //Sabias
 Route::get('/enlaces/catalogo',SabiaIndex::class)->name('sabias.catalogo');
 Route::get('/enlaces',[SabiasController::class,'index'])->middleware(['auth', 'verified'])->name('sabia.index');
 Route::get('/enlaces/create',[SabiasController::class,'create'])->middleware(['auth', 'verified'])->name('sabia.create');
-    Route::get('/enlaces/{sabia}/edit',[SabiasController::class,'edit'])->middleware(['auth', 'verified'])->name('sabia.edit');
-
+Route::get('/enlaces/{sabia}/edit',[SabiasController::class,'edit'])->middleware(['auth', 'verified'])->name('sabia.edit');
 
 //Noticias
 Route::get('/noticias/catalogo',NoticiaIndex::class)->name('noticias.catalogo');
 Route::get('/noticias',[NoticiasController::class,'index'])->middleware(['auth', 'verified'])->name('noticia.index');
 Route::get('/noticias/create',[NoticiasController::class,'create'])->middleware(['auth', 'verified'])->name('noticia.create');
 Route::get('/noticias/{noticia}/edit',[NoticiasController::class,'edit'])->middleware(['auth', 'verified'])->name('noticia.edit');
-
 
 // Infantes
 Route::get('/infantes',[infantesController::class,'index'])->middleware(['auth', 'verified'])->name('infante.index');
@@ -72,3 +62,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// Route::get('/dashboard',[VideosController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
+//  Route::get('/dashboard', function () {
+//      return view('dashboard');
+//  })->middleware(['auth', 'verified'])->name('dashboard');
