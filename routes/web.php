@@ -34,6 +34,7 @@ Route::get('/videos/create',[VideosController::class,'create'])->middleware(['au
 Route::get('/videos/{video}/edit',[VideosController::class,'edit'])->middleware(['auth', 'verified'])->name('video.edit');
 
 //Sabias
+Route::get('/sabias',[AppController::class,'sabias'])->name('sabias');
 Route::get('/enlaces/catalogo',SabiaIndex::class)->name('sabias.catalogo');
 Route::get('/enlaces',[SabiasController::class,'index'])->middleware(['auth', 'verified'])->name('sabia.index');
 Route::get('/enlaces/create',[SabiasController::class,'create'])->middleware(['auth', 'verified'])->name('sabia.create');

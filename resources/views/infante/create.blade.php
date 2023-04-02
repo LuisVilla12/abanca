@@ -5,15 +5,24 @@
         </h2>
     </x-slot>
 
-    <div class="mt-6">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <div class="md:flex md:justify-center p-5">
-                        <livewire:crear-infante/>
+    <div class="py-3">
+        <div class="max-w-7xl mx-auto">
+            <div class="mt-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="grid grid-cols-3 justify-around items-center">
+                    <div class="px-6 grid place-items-center">
+                        <img src="{{ asset('img/Globo Verde.png') }}" alt="" class="max-h-50 md:max-h-80">
+                    </div>
+                    <div class="px-2 text-gray-900">
+                        <div class="px-6">
+                            <livewire:crear-infante/>
+                        </div>
+                    </div>
+                    <div class="px-6 grid place-items-center">
+                        <img src="{{ asset('img/Globo Azul.png') }}" alt="" class="max-h-50 md:max-h-60">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+   
 </x-app-layout>

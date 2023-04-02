@@ -118,9 +118,9 @@
                 </div>
             </div>
     </div>
-    <div class="" id="formulario">
+    <div class="p-6 my-6" id="formulario">
 
-        <form wire:submit.prevent='reservarCita' class="md:w-1/2" id="formulario">
+        <form wire:submit.prevent='reservarCita' class="" id="formulario">
             @csrf
             <div class="mt-4">
                 <x-input-label for="infante_id" :value="__('Infante de la cita')" />

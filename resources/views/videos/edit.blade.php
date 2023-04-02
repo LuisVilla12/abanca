@@ -5,12 +5,18 @@
         </h2>
     </x-slot>
 
+    
     <div class="py-3">
         <div class="max-w-7xl mx-auto ">
             <div class="mt-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-2 text-gray-900">
-                    <div class="md:flex md:justify-center p-2">
-                        <livewire:editar-video :video="$video"/>
+                <div class="grid grid-cols-2">
+                    <div class="px-2 text-gray-900">
+                        <div class="px-6">
+                            <livewire:editar-video :video="$video"/>
+                        </div>
+                    </div>
+                    <div class="px-6 grid place-items-center">
+                        <img src="{{ asset('img/Personajes xicoclass.png') }}" alt="" class="max-h-50 md:max-h-60">
                     </div>
                 </div>
             </div>

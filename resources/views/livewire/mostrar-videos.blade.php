@@ -5,7 +5,7 @@
                 <div class="mb-5">
                     <a class="text-xl font-bold">{{ $video->title }}</a>
                     <p class="text-sm text-gray-400 font-semibold">Categoria:
-                        {{ $video->categoria_id? 'TUTOR':'INFANTE'}}
+                        {{ $video->categoria_id==1? 'TUTOR':'INFANTE'}}
                     </p>
                 </div>
                 <div class="flex flex-col md:flex-row items-stretch gap-3 md:items-center mt-5 md:mt-0 px-5">

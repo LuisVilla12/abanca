@@ -383,7 +383,7 @@
     </style>
 
     {{-- Barra de estilos --}}
-    <link rel="stylesheet" href="{{ asset('build/assets/app-84c832a1.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/app-7a4e70af.css') }}">
 </head>
 <body class="bg-white    flex flex-col justify-between">
     <header class="p-5  bg-header shadow">
@@ -417,6 +417,16 @@
 
                         Conócenos</a>
                 </li>
+                {{-- <li class="inline py-5 px-2">
+                    <a href="{{ route('conoce') }}" class="inline-block  text-white text-xl md:mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 inline">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+
+                        Sabias</a>
+                </li> --}}
 
                 @auth
 
@@ -502,8 +512,8 @@
                         <p class="text-2xl mt-4"> Celebridades como Woody Allen, Michael Jackson Bill Gates y Stanley
                             Kubrick son algunos de ellos.</p>
                         <div class="grid place-items-center">
-                            <a href=""
-                                class="m-0 rounded-xl py-3 px-6 text-white bg-pink-700 mt-4 text-2xl font-semibold md:w-auto hover:cursor-pointer">Conoce
+                            <a href="{{ route('sabias') }}"
+                                class="m-0 rounded-xl py-3 px-6 text-white bg-pink-700 mt-4 text-2xl font-semibold md:w-auto hover:cursor-pointer">Ver
                                 más</a>
                         </div>
                 </div>
@@ -530,7 +540,26 @@
             </div>
         </section>
         {{-- Noticias --}}
-      
+        <div class="my-20">
+            <div class="container mx-auto">
+                <h2 class="uppercase font-semibold text-titulo text-4xl my-3 mx-0 text-center md:text-left md:text-6xl">Te puede interesar</h2>
+                <div class="grid md:grid-cols-3 md:gap-4">
+                   @foreach ($news as $new)
+                   {{-- {{dd($news)}} --}}
+                        <section class="p-2">
+                        <div class="overflow-hidden w-full my-0 mx-auto">
+                            <img src="{{ asset('uploads/'. $new->urlimg) }}" class="w-full ">
+                        </div>
+                        <h4 class="text-gray-500 mt-3 text-2xl md:text-3xl font-bold text-center mb-0">{{$new->title}}</h4>
+                        <div class="grid place-items-center">
+                            <a class="rounded-xl py-3 px-6 text-white bg-pink-700 mt-4 text-2xl font-semibold md:w-auto hover:cursor-pointer" href="{{$new->url}}}">Leer más</a>
+                        </div>                
+                    </section>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    
 
         {{-- ver mas noticias --}}
         <div class="grid place-items-center">

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Noticia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AppController extends Controller
 {
@@ -14,7 +16,14 @@ class AppController extends Controller
     public function index()
     {
         //
-        return view('welcome');
+        $news= DB::table('noticias')->limit(3)->get();
+        return view('welcome',['news'=>$news]);
+    }
+
+    public function sabias()
+    {
+        //
+        return view('sabias');
     }
 
     /**

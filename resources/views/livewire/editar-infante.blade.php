@@ -103,7 +103,7 @@
 
 <div>
     
-    <form wire:submit.prevent='editarInfante'  class="">
+    <form wire:submit.prevent='editarInfante'  class="px-6 pt-6 ">
         @csrf
         <div class="mt-4">
             <x-input-label for="name" :value="__('Nombre del infante')" />

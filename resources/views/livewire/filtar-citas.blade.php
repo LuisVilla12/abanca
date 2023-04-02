@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent='leerDatosFormulario' class="md:w-1/2">
+    <form wire:submit.prevent='leerDatosFormulario' class="">
         @csrf
         <div class="mt-4">
             <x-input-label for="date" :value="__('Fecha de la cita')" />
