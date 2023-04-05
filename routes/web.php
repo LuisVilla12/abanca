@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\CitasController;
 use App\Http\Controllers\ConoceIndex;
+use App\Http\Controllers\DocentesController;
 use App\Http\Controllers\SabiasController;
 use App\Http\Controllers\VideosController;
 use App\Http\Controllers\ProfileController;
@@ -27,6 +28,11 @@ use App\Http\Controllers\SabiaIndex;
 Route::get('/', [AppController::class, 'index'])->name('index');
 Route::get('/material-apoyo',MaterialApoyoIndex::class)->name('material-apoyo');
 Route::get('/conoce',ConoceIndex::class)->name('conoce');
+
+// Usuarios
+Route::get('/docentes',[DocentesController::class, 'index'])->name('docentes.index');
+Route::get('/docentes/create',[DocentesController::class, 'create'])->name('docentes.create');
+Route::get('/docentes/edit',[DocentesController::class,'edit'])->name('docentes.edit');
 
 // Videos
 Route::get('/videos',[VideosController::class,'index'])->middleware(['auth', 'verified'])->name('video.index');
