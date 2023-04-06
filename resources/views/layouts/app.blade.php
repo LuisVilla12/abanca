@@ -13,7 +13,7 @@
         <!-- Scripts -->
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js'])  --}}
         
-        <link rel="stylesheet" href="{{ asset('build/assets/app-7a4e70af.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/assets/app-85c1ba73.css') }}">
         @livewireStyles
         @stack('styles')
     </head>

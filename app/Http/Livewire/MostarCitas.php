@@ -4,12 +4,14 @@ namespace App\Http\Livewire;
 
 use App\Models\Cita;
 use Livewire\Component;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Query\Builder;
 
 class MostarCitas extends Component
 {
 
-    public $termino;
+    public $termino; 
+    public $fecha; 
     // Declarar que debe escuchar ciertas funciones
     protected $listeners = ['cancelarCita','asistirCita','terminosBusqueda'=>'buscar'];
     
@@ -36,16 +38,8 @@ class MostarCitas extends Component
         $citas=Cita::when($this->termino, function ($query){
             $query->where('date', $this->termino)->where('cancelo',0)->where('asistio',0);
         }, function ($query) {
-            $query->where('cancelo',0)->where('asistio',0);
+            $query->where('cancelo',0)->where('asistio',0)->where('date','>',Carbon::now()->format('Y-m-d'));
         })->get();
-
-
-        // ->when($this->termino, function ($query){
-        //     $query->orWhere('name_cientifico', 'LIKE', '%' . $this->termino . "%");
-        // })
-        //Oficial
-        // $citas=Cita::where(['cancelo'=>0,'asistio'=>0])->get();
-
         return view('livewire.mostar-citas',['citas'=>$citas]);
     }
 }

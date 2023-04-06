@@ -383,7 +383,7 @@
     </style>
 
     {{-- Barra de estilos --}}
-    <link rel="stylesheet" href="{{ asset('build/assets/app-7a4e70af.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/app-85c1ba73.css') }}">
 </head>
 
 <body class="bg-white    flex flex-col justify-between">

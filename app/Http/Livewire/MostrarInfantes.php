@@ -25,10 +25,14 @@ class MostrarInfantes extends Component
     public function render()
     {
         // dd();
+        
         $infantes = Infante::where('user_id', Auth::id())->orderBy('lastname_p')->get();
         // $this->authorize('viewAny',Infante: :class);
         // $infantes = Infante::where('user_id', Auth::id())->get();
         if($this->tipo==2){
+            $infantes = Infante::all();
+        }
+        if($this->tipo==3){
             $infantes = Infante::all();
         }
         return view('livewire.mostrar-infantes',[
