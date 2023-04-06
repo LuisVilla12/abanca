@@ -38,6 +38,7 @@ class CrearNoticia extends Component
         return redirect()->route('noticia.index');
     }
 
+    
     public function render()
     {
         $fecha = Carbon::now()->format('Y-m-d');

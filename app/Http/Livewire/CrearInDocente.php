@@ -11,21 +11,21 @@ use Illuminate\Support\Facades\Hash;
 class CrearInDocente extends Component
 {
     public $name;
+    public $email;
+    public $password;
+    public $password_confirmation;
     public $lastname_p;
     public $lastname_m;
-    public $date;
-    public $genero;
+    public $type;
 
      // Reglas
      protected $rules=[
         'name'=>'required|string',
         'lastname_p'=>'required|string',
         'lastname_m'=>'required|string',
-        'genero'=>'required',
-        'date'=>'required',
-         'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-        'password' => ['required', 'confirmed'],
-        'type' => ['required', 'string', 'max:255']
+        // 'genero'=>'required',
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+        'password' => ['required', 'confirmed']
     ];
 
     public function crearDocente(){
@@ -34,15 +34,14 @@ class CrearInDocente extends Component
             'name'=>$datos['name'],
             'lastname_p'=>$datos['lastname_p'],
             'lastname_m'=>$datos['lastname_m'],
-            'genero'=>$datos['genero'],
-            'date'=>$datos['date'],
+            // 'genero'=>$datos['genero'],
             'email' => $datos['email'],
+            'type' => '3',
             'password' => Hash::make($datos['password']),
         ]);
-        return redirect()->route('infante.index');
+        return redirect()->route('docentes.index');
     }
-    public function render()
-    {
+    public function render(){
         $fecha = Carbon::now()->format('Y-m-d');
         return view('livewire.crear-in-docente',['fecha'=>$fecha]);
     }

@@ -47,6 +47,7 @@ class NoticiaPolicy
         return $user->type==2;
     }
 
+    
     /**
      * Determine whether the user can update the model.
      *

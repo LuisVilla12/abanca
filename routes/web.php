@@ -30,9 +30,9 @@ Route::get('/material-apoyo',MaterialApoyoIndex::class)->name('material-apoyo');
 Route::get('/conoce',ConoceIndex::class)->name('conoce');
 
 // Usuarios
-Route::get('/docentes',[DocentesController::class, 'index'])->name('docentes.index');
-Route::get('/docentes/create',[DocentesController::class, 'create'])->name('docentes.create');
-Route::get('/docentes/edit',[DocentesController::class,'edit'])->name('docentes.edit');
+Route::get('/docentes',[DocentesController::class, 'index'])->middleware(['auth', 'verified'])->name('docentes.index');
+Route::get('/docentes/create',[DocentesController::class, 'create'])->middleware(['auth', 'verified'])->name('docentes.create');
+Route::get('/docentes/edit',[DocentesController::class,'edit'])->middleware(['auth', 'verified'])->name('docentes.edit');
 
 // Videos
 Route::get('/videos',[VideosController::class,'index'])->middleware(['auth', 'verified'])->name('video.index');

@@ -12,6 +12,7 @@ class NoticiasController extends Controller
         $this->authorize('viewAny',Noticia::class);
         return view('news.index');
     }
+    
     public function create(){
         $this->authorize('create',Noticia::class);
         return view('news.create');

@@ -104,7 +104,7 @@
     <form wire:submit.prevent='crearDocente' class="  px-6 pt-6">
         @csrf
         <div class="mt-4">
-            <x-input-label for="name" :value="__('Nombre del infante')" />
+            <x-input-label for="name" :value="__('Nombre del docente')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" wire:model="name" :value="old('name')"
                 placeholder="Ingrese el nombre del infante" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
@@ -121,32 +121,21 @@
                 :value="old('lastname_m')" placeholder="Ingrese el apellido paterno" />
             <x-input-error :messages="$errors->get('lastname_m')" class="mt-2" />
         </div>
-
-        <div class="mt-4">
-            <x-input-label for="genero" :value="__('Género del niño')" />
-
-            <select wire:model="genero" id="genero"
-                class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block w-full">
-                <option value=""  selected>--Sin seleccionar</option>
-                <option value="1">Hombre</option>
-                <option value="2">Mujer</option>
-            </select>
-            <x-input-error :messages="$errors->get('genero')" class="mt-2" />
-        </div>
          <!-- Email Address -->
          <div class="mt-4">
             <x-input-label for="email" :value="__('Correo electronico')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" wire:model="email" :value="old('email')" placeholder="Ingrese el correo electronico" required />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Contraseña')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
-                            name="password"
+                            wire:model="password"
+                            placeholder="Ingrese la contraseña"
                             required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -154,11 +143,13 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <x-input-label for="password_confirmation" :value="__('Confirmar contraseña')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"
-                            name="password_confirmation" required />
+                            wire:model="password_confirmation" 
+                            placeholder="Repite la contraseña"
+                            required />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
