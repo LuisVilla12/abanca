@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('table_tareas', function (Blueprint $table) {
+        Schema::create('tareas', function (Blueprint $table) {
             $table->id();
+            $table->longText('title')->nullable();
+            $table->longText('descripcion')->nullable();
+            $table->date('date')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('estatus')->default(1);
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_tareas');
+        Schema::dropIfExists('tareas');
     }
 };

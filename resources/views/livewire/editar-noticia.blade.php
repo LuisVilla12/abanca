@@ -102,6 +102,7 @@
 @endpush
 
 
+
 <div>
     <form wire:submit.prevent='editarNoticia'  class="px-6 pt-6">
         @csrf

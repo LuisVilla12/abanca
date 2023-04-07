@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('table_reportes', function (Blueprint $table) {
+        Schema::create('reportes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('infante_id')->constrained()->onDelete('cascade');
+            $table->foreignId('tarea_id')->constrained()->onDelete('cascade');
+            $table->longText('descripcion')->nullable();
+            $table->date('date');
+            $table->string('estatus')->default(1);
         });
     }
 
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_reportes');
+        Schema::dropIfExists('reportes');
     }
 };

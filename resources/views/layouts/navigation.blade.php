@@ -40,7 +40,7 @@
                         {{ __('Infantes') }}
                     </x-nav-link>
                 </div>
-                @if (Auth()->user()->type=='2')
+                @if (Auth()->user()->type=='1')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('docentes.index')" :active="request()->routeIs('docentes.index', 'docentes.create','docentes.edit')">
                         {{ __('Docentes') }}
@@ -49,10 +49,10 @@
                 @endif
                 @if (Auth()->user()->type=='3')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('tareas.index')" :active="request()->routeIs('docentes.index', 'docentes.create','docentes.edit')">
+                    <x-nav-link :href="route('tareas.index')" :active="request()->routeIs('tareas.index', 'tareas.create','tareas.edit')">
                         {{ __('Actividades') }}
                     </x-nav-link>
-                </div>    
+                </div>        
                 @endif
             </div>
 

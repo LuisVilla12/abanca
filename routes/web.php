@@ -37,6 +37,8 @@ Route::get('/docentes/edit',[DocentesController::class,'edit'])->middleware(['au
 
 // Taras
 Route::get('/actividades',[TareasController::class, 'index'])->middleware(['auth', 'verified'])->name('tareas.index');
+Route::get('/actividades/create',[TareasController::class, 'create'])->middleware(['auth', 'verified'])->name('tareas.create');
+Route::get('/actividades/{actividad}/edit',[TareasController::class, 'edit'])->middleware(['auth', 'verified'])->name('tareas.edit');
 
 // Videos
 Route::get('/videos',[VideosController::class,'index'])->middleware(['auth', 'verified'])->name('video.index');
