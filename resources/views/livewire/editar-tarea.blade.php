@@ -100,6 +100,7 @@
         }
     </style>
 @endpush
+
 <div>
     <form wire:submit.prevent='editarTarea'  class=" px-6 pt-6">
         @csrf
@@ -112,7 +113,7 @@
         </div>
         <div class="mt-4">
             <x-input-label for="date" :value="__('Fecha de la actividad')" />
-            <x-text-input id="date" class="block mt-1 w-full" type="date" wire:model="date" :value="old('date')" max="{{$fecha}}"/>
+            <x-text-input id="date" class="block mt-1 w-full" type="date" wire:model="date" :value="old('date')" />
             @error('date')
                 <livewire:mostrar-alerta :message="$message">
             @enderror
@@ -126,8 +127,9 @@
         </div>
     
         <div class="mt-4 grid place-items-center">
-            <x-primary-button class="mt-2" id="submit">Registrar actividad</x-primary-button>
+            <x-primary-button class="mt-2" id="submit">Actualizar actividad</x-primary-button>
         </div>
+        
         <div class="grid place-items-center mt-6">
             <div class=" hidden animacion ">
                 <div class="sk-chase">

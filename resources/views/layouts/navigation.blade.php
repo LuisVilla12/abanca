@@ -52,7 +52,12 @@
                     <x-nav-link :href="route('tareas.index')" :active="request()->routeIs('tareas.index', 'tareas.create','tareas.edit')">
                         {{ __('Actividades') }}
                     </x-nav-link>
-                </div>        
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('reportes.index')" :active="request()->routeIs('reportes.index', 'reportes.create','tareas.edit')">
+                        {{ __('Reportes') }}
+                    </x-nav-link>
+                </div>               
                 @endif
             </div>
 

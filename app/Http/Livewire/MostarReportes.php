@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Reporte;
 use Livewire\Component;
 
 class MostarReportes extends Component
 {
     public function render()
     {
-        return view('livewire.mostar-reportes');
+        $reportes=Reporte::all();
+        return view('livewire.mostar-reportes',['reportes'=>$reportes]);
     }
 }

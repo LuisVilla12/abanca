@@ -102,6 +102,7 @@
 @endpush
 <div>
     
+    
     <form wire:submit.prevent='editarVideo'  class="px-6 pt-6">
         @csrf
         <div class="mt-4">

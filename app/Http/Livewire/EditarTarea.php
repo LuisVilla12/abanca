@@ -20,24 +20,21 @@ class EditarTarea extends Component
          $this->tarea_id = $tarea->id;
          $this->title = $tarea->title;  
          $this->descripcion = $tarea->descripcion;  
-         $this->date = $tarea->date;  
+         $this->date=Carbon::parse($tarea->date)->format('Y-m-d');
          $this->user_id = $tarea->user_id;  
-         dd($tarea);
            }
 
             // Reglas
     protected $rules=[
         'title'=>'required|string',
-        'user_id'=>'required|string',
         'descripcion'=>'required|string',
         'date'=>'required'
     ];
     public function editarTarea()
     {
         $datos = $this->validate();
-
         // Encontrar el video
-        $tarea = Tarea::find($this->video_id);
+        $tarea = Tarea::find($this->tarea_id);
         // Asignar valores
         $tarea->title = $datos['title'];
         $tarea->descripcion = $datos['descripcion'];
@@ -45,13 +42,15 @@ class EditarTarea extends Component
         $tarea->user_id = $datos['user_id'];
         // Guardar tarea
         $tarea->save();
-        return redirect()->route('actividades.index');
+        return redirect()->route('tareas.index');
     }
 
     public function render()
     {
-        $fecha = Carbon::now()->format('Y-m-d');
-        return view('livewire.editar-tarea',['fecha'=>$fecha]);
+        
+        // $fecha = Carbon::now()->format('Y-m-d');
+        // return view('livewire.editar-tarea',['fecha'=>$fecha]);
+        return view('livewire.editar-tarea');
     }
 }
 

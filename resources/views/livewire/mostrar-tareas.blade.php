@@ -1,4 +1,5 @@
 
+
 <div>
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
         @forelse ($tareas as $tarea)

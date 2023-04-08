@@ -4,7 +4,6 @@
             {{ __('Editar video') }}
         </h2>
     </x-slot>
-
     
     <div class="py-3">
         <div class="max-w-7xl mx-auto ">

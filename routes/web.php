@@ -12,6 +12,7 @@ use App\Http\Controllers\infantesController;
 use App\Http\Controllers\MaterialApoyoIndex;
 use App\Http\Controllers\NoticiaIndex;
 use App\Http\Controllers\NoticiasController;
+use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\SabiaIndex;
 use App\Http\Controllers\TareasController;
 
@@ -35,10 +36,16 @@ Route::get('/docentes',[DocentesController::class, 'index'])->middleware(['auth'
 Route::get('/docentes/create',[DocentesController::class, 'create'])->middleware(['auth', 'verified'])->name('docentes.create');
 Route::get('/docentes/edit',[DocentesController::class,'edit'])->middleware(['auth', 'verified'])->name('docentes.edit');
 
-// Taras
+// Tareas
 Route::get('/actividades',[TareasController::class, 'index'])->middleware(['auth', 'verified'])->name('tareas.index');
 Route::get('/actividades/create',[TareasController::class, 'create'])->middleware(['auth', 'verified'])->name('tareas.create');
-Route::get('/actividades/{actividad}/edit',[TareasController::class, 'edit'])->middleware(['auth', 'verified'])->name('tareas.edit');
+Route::get('/actividades/{tarea}/edit',[TareasController::class, 'edit'])->middleware(['auth', 'verified'])->name('tareas.edit');
+
+// Reportes
+Route::get('/reportes',[ReporteController::class, 'index'])->middleware(['auth', 'verified'])->name('reportes.index');
+Route::get('/reportes/create',[ReporteController::class, 'create'])->middleware(['auth', 'verified'])->name('reportes.create');
+// Route::get('/reportes/',[ReporteController::class, 'index'])->middleware(['auth', 'verified'])->name('reportes.index');
+
 
 // Videos
 Route::get('/videos',[VideosController::class,'index'])->middleware(['auth', 'verified'])->name('video.index');

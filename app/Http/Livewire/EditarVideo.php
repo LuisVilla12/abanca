@@ -6,6 +6,7 @@ use App\Models\Video;
 use Livewire\Component;
 use App\Models\Categoria;
 
+
 class EditarVideo extends Component
 {
     public $video_id;
