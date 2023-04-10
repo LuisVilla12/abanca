@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cita;
 use App\Models\Infante;
+use App\Models\Reporte;
 use Illuminate\Http\Request;
 
 class infantesController extends Controller
@@ -27,7 +28,8 @@ class infantesController extends Controller
     public function show(Infante $infante){
         //
         $citas=Cita::all()->where('infante_id',$infante->id);
-        return view('infante.show',['infante'=>$infante,'citas'=>$citas]);
+        $reportes=Reporte::all()->where('infante_id',$infante->id);
+        return view('infante.show',['infante'=>$infante,'citas'=>$citas, 'reportes'=>$reportes]);
     }
 
     public function edit(Infante $infante){

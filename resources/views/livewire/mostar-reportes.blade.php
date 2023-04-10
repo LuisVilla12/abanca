@@ -3,9 +3,15 @@
         @forelse ($reportes as $reporte)
             <div class="md:flex md:justify-between md:items-center px-5">
                 <div class="mb-5">
-                    <a class="text-xl font-bold">{{ $reporte->title }}</a>
-                    <p class="text-sm text-gray-400 font-semibold">Fuente:
-                        {{ $reporte->autor}}
+                    <a class="text-xl font-bold">{{ $reporte->infante->name . " " . $reporte->infante->lastname_p . " " . $reporte->infante->lastname_m  }}</a>
+                    <p class="text-sm text-gray-400 font-semibold">Actividad:
+                        {{ $reporte->tarea->title}}
+                    </p>
+                    <p class="text-sm text-gray-400 font-semibold">Realizado por:
+                        {{ $reporte->user->name}}
+                    </p>
+                    <p class="text-sm text-gray-400 font-semibold">Fecha del reporte:
+                        {{ $reporte->tarea->date->format('d-n-Y')}}
                     </p>
                 </div>
                 <div class="flex flex-col md:flex-row items-stretch gap-3 md:items-center mt-5 md:mt-0 px-5">

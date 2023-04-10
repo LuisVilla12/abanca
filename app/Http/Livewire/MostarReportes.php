@@ -10,6 +10,7 @@ class MostarReportes extends Component
     public function render()
     {
         $reportes=Reporte::all();
+
         return view('livewire.mostar-reportes',['reportes'=>$reportes]);
     }
 }
