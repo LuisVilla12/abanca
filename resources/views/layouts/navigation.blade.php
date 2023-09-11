@@ -40,7 +40,7 @@
                         {{ __('Infantes') }}
                     </x-nav-link>
                 </div>
-                @if (Auth()->user()->type=='1')
+                @if (Auth()->user()->type=='2' )
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('docentes.index')" :active="request()->routeIs('docentes.index', 'docentes.create','docentes.edit')">
                         {{ __('Docentes') }}

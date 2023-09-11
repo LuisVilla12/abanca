@@ -16,6 +16,7 @@ class AppController extends Controller
     public function index()
     {
         //
+        
         $news= DB::table('noticias')->limit(3)->get();
         return view('welcome',['news'=>$news]);
     }

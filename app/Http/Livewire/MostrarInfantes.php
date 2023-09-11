@@ -36,7 +36,7 @@ class MostrarInfantes extends Component
             $infantes = Infante::all();
         }
         return view('livewire.mostrar-infantes',[
-            'infantes'=>$infantes
+            'infantes'=>$infantes,'tipo'=>$this->tipo
         ]);
     }
 }
